@@ -3,8 +3,11 @@ import * as counterSelect from './redux/selectors'
 import {useAppSelector} from "./app/hooks";
 import {Switch, Route} from 'react-router-dom'
 import {registerUser} from "./api/authApi";
-import {Register} from "./pages/Register/Register";
-import {Login} from "./pages/Login/Login";
+import {Register} from "./pages/Auth/Register/Register";
+import { Layout } from './components/Layout';
+import { Header } from './components/Header/Header';
+import { Login } from './pages/Auth/Login/Login';
+import './App.css'
 
 function App() {
   const counter = useAppSelector(counterSelect.all)
@@ -20,12 +23,13 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Switch>
-        <Route component={Login} exact path='/'/>
-        <Route component={Register} exact path='/register'/>
-      </Switch>
-    </div>
+      <>
+          {/*<Header/>*/}
+          <Switch>
+              <Route component={Login} exact path='/'/>
+              <Route component={Register} exact path='/register'/>
+          </Switch>
+      </>
   );
 }
 
